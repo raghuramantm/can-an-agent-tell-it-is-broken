@@ -1,0 +1,37 @@
+algo,condition,rate,sigma,snr,detector,params,at_grid_edge,viable,det_rate,fa_rate,J,det_fixed_z,fa_fixed_z,J_fixed_z,gain_at_alarm
+PPO_DR,deterministic,0.002,0.0,inf,ztest,{'z_star': 2.25},False,True,0.66,0.36,0.30000000000000004,0.3,0.06,0.24,0.6347392786644231
+PPO_DR,deterministic,0.002,0.0,inf,page_hinkley,"{'delta': 0.25, 'lam': 80}",True,True,0.62,0.62,0.0,,,,0.5939572210467838
+PPO_DR,deterministic,0.002,0.0,inf,ewma,"{'alpha': 0.2, 'L': 6.5}",True,True,0.6,0.34,0.25999999999999995,,,,0.6451893631260103
+PPO_DR,mild noise SNR~4.2,0.002,0.05,4.214261501141095,ztest,{'z_star': 2.25},False,True,0.76,0.36,0.4,0.38,0.06,0.32,0.6043310546981012
+PPO_DR,mild noise SNR~4.2,0.002,0.05,4.214261501141095,page_hinkley,"{'delta': 0.25, 'lam': 80}",True,False,0.74,0.62,0.12,,,,0.5678469169809984
+PPO_DR,mild noise SNR~4.2,0.002,0.05,4.214261501141095,ewma,"{'alpha': 0.2, 'L': 6.5}",True,True,0.72,0.34,0.37999999999999995,,,,0.6100969070714202
+PPO_DR,moderate noise SNR~2.1,0.002,0.1,2.1071307505705477,ztest,{'z_star': 2.25},False,True,0.76,0.36,0.4,0.48,0.06,0.42,0.6015013528078819
+PPO_DR,moderate noise SNR~2.1,0.002,0.1,2.1071307505705477,page_hinkley,"{'delta': 0.25, 'lam': 80}",True,True,0.8,0.62,0.18000000000000005,,,,0.5903057646374119
+PPO_DR,moderate noise SNR~2.1,0.002,0.1,2.1071307505705477,ewma,"{'alpha': 0.2, 'L': 5.5}",True,True,0.88,0.54,0.33999999999999997,,,,0.661103304556837
+PPO_DR,high noise SNR~1.05,0.002,0.2,1.0535653752852738,ztest,{'z_star': 3.0},False,True,0.66,0.14,0.52,0.58,0.06,0.52,0.557310231969019
+PPO_DR,high noise SNR~1.05,0.002,0.2,1.0535653752852738,page_hinkley,"{'delta': 0.25, 'lam': 80}",True,True,0.68,0.62,0.06000000000000005,,,,0.5338746976590336
+PPO_DR,high noise SNR~1.05,0.002,0.2,1.0535653752852738,ewma,"{'alpha': 0.2, 'L': 8.0}",True,True,0.7,0.18,0.52,,,,0.5234809221908006
+PPO_DR,PURE NOISE (healthy),0.0,0.1,0.0,ztest,{'z_star': 2.75},False,True,0.24,0.2,0.03999999999999998,0.14,0.06,0.08000000000000002,0.8766500399140984
+PPO_DR,PURE NOISE (healthy),0.0,0.1,0.0,page_hinkley,"{'delta': 0.25, 'lam': 80}",True,True,0.62,0.62,0.0,,,,0.8672720943523651
+PPO_DR,PURE NOISE (healthy),0.0,0.1,0.0,ewma,"{'alpha': 0.2, 'L': 8.0}",True,True,0.24,0.18,0.06,,,,0.9165834579409097
+PPO_DR,"PURE NOISE (healthy, hi)",0.0,0.2,0.0,ztest,{'z_star': 2.25},False,True,0.68,0.36,0.32000000000000006,0.36,0.06,0.3,0.7692741017700891
+PPO_DR,"PURE NOISE (healthy, hi)",0.0,0.2,0.0,page_hinkley,"{'delta': 0.25, 'lam': 80}",True,True,0.72,0.62,0.09999999999999998,,,,0.7716721492384795
+PPO_DR,"PURE NOISE (healthy, hi)",0.0,0.2,0.0,ewma,"{'alpha': 0.2, 'L': 5.5}",True,True,0.8,0.54,0.26,,,,0.7488541450643668
+PPO,deterministic,0.002,0.0,inf,ztest,{'z_star': 3.0},False,True,0.14,0.08,0.06000000000000001,0.08,0.0,0.08,0.7831427628669629
+PPO,deterministic,0.002,0.0,inf,page_hinkley,"{'delta': 0.25, 'lam': 80}",True,True,0.18,0.24,-0.06,,,,0.7603235301534208
+PPO,deterministic,0.002,0.0,inf,ewma,"{'alpha': 0.2, 'L': 6.5}",True,True,0.2,0.26,-0.06,,,,0.7966666586027594
+PPO,mild noise SNR~4.2,0.002,0.05,4.214261501141095,ztest,{'z_star': 2.25},False,True,0.28,0.3,-0.019999999999999962,0.06,0.0,0.06,0.73126782287063
+PPO,mild noise SNR~4.2,0.002,0.05,4.214261501141095,page_hinkley,"{'delta': 0.25, 'lam': 80}",True,True,0.22,0.24,-0.01999999999999999,,,,0.7512973669863932
+PPO,mild noise SNR~4.2,0.002,0.05,4.214261501141095,ewma,"{'alpha': 0.2, 'L': 6.0}",True,True,0.32,0.28,0.03999999999999998,,,,0.7160142460754197
+PPO,moderate noise SNR~2.1,0.002,0.1,2.1071307505705477,ztest,{'z_star': 2.25},False,True,0.38,0.3,0.08000000000000002,0.08,0.0,0.08,0.7187068767573417
+PPO,moderate noise SNR~2.1,0.002,0.1,2.1071307505705477,page_hinkley,"{'delta': 0.25, 'lam': 16}",True,True,0.92,0.9,0.020000000000000018,,,,0.8325299298357041
+PPO,moderate noise SNR~2.1,0.002,0.1,2.1071307505705477,ewma,"{'alpha': 0.2, 'L': 6.0}",True,True,0.42,0.28,0.13999999999999996,,,,0.7319063448604812
+PPO,high noise SNR~1.05,0.002,0.2,1.0535653752852738,ztest,{'z_star': 2.0},True,True,0.86,0.34,0.52,0.38,0.0,0.38,0.5900263504641583
+PPO,high noise SNR~1.05,0.002,0.2,1.0535653752852738,page_hinkley,"{'delta': 0.25, 'lam': 26}",True,True,0.92,0.76,0.16000000000000003,,,,0.7313233749037955
+PPO,high noise SNR~1.05,0.002,0.2,1.0535653752852738,ewma,"{'alpha': 0.2, 'L': 6.0}",True,True,0.7,0.28,0.41999999999999993,,,,0.6053418195023517
+PPO,PURE NOISE (healthy),0.0,0.1,0.0,ztest,{'z_star': 3.0},False,True,0.14,0.08,0.06000000000000001,0.1,0.0,0.1,0.838804434562347
+PPO,PURE NOISE (healthy),0.0,0.1,0.0,page_hinkley,"{'delta': 0.25, 'lam': 16}",True,False,0.94,0.9,0.039999999999999925,,,,0.8889956179268553
+PPO,PURE NOISE (healthy),0.0,0.1,0.0,ewma,"{'alpha': 0.2, 'L': 6.0}",True,True,0.24,0.28,-0.040000000000000036,,,,0.8792999389027624
+PPO,"PURE NOISE (healthy, hi)",0.0,0.2,0.0,ztest,{'z_star': 2.0},True,True,0.68,0.34,0.34,0.32,0.0,0.32,0.7542329480900506
+PPO,"PURE NOISE (healthy, hi)",0.0,0.2,0.0,page_hinkley,"{'delta': 0.25, 'lam': 26}",True,True,0.94,0.76,0.17999999999999994,,,,0.7980365956318874
+PPO,"PURE NOISE (healthy, hi)",0.0,0.2,0.0,ewma,"{'alpha': 0.1, 'L': 7.5}",False,True,0.62,0.34,0.27999999999999997,,,,0.805270163812965

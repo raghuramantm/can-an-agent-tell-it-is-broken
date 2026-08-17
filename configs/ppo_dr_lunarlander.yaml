@@ -1,0 +1,45 @@
+# PPO with domain randomization on LunarLander-v3 (discrete).
+# Each environment reset draws fresh physics parameters → policy must learn
+# a robust mapping invariant to gravity / wind / engine power.
+
+algo: ppo_dr           # distinct from vanilla PPO so run dirs are separable
+env_id: LunarLander-v3
+n_envs: 8
+vec_type: subproc
+total_timesteps: 1_500_000    # +50 % budget vs. PPO baseline — DR is harder
+device: cpu
+
+hyperparameters:
+  n_steps: 1024
+  batch_size: 64
+  n_epochs: 4
+  gamma: 0.999
+  gae_lambda: 0.98
+  ent_coef: 0.01
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  learning_rate: 3.0e-4
+  clip_range: 0.2
+  policy: MlpPolicy
+  policy_kwargs:
+    net_arch:
+      pi: [128, 128]
+      vf: [128, 128]
+
+normalize_obs: true
+normalize_reward: false
+
+eval_freq: 25_000
+n_eval_episodes: 20
+checkpoint_freq: 100_000
+
+# --- Domain randomization spec ---
+wrappers:
+  domain_randomization:
+    gravity_range: [-12.0, -8.0]
+    main_engine_power_range: [11.0, 17.0]
+    side_engine_power_range: [0.4, 0.8]
+    wind_power_range: [5.0, 20.0]
+    turbulence_power_range: [0.5, 2.0]
+    enable_wind: true
+    log_per_episode: false

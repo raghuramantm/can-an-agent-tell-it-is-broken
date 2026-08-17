@@ -1,0 +1,40 @@
+# PPO baseline on LunarLander-v3 (discrete).
+# Hyperparameters derived from rl-baselines3-zoo (Raffin et al., 2021) with
+# minor adjustments for M4 wallclock parity.
+
+algo: ppo
+env_id: LunarLander-v3
+n_envs: 8                    # SubprocVecEnv workers
+vec_type: subproc
+total_timesteps: 1_000_000
+device: cpu                   # PPO+small MLP → CPU is faster than MPS
+
+# --- Algorithm hyperparameters ---
+hyperparameters:
+  n_steps: 1024
+  batch_size: 64
+  n_epochs: 4
+  gamma: 0.999
+  gae_lambda: 0.98
+  ent_coef: 0.01
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  learning_rate: 3.0e-4
+  clip_range: 0.2
+  policy: MlpPolicy
+  policy_kwargs:
+    net_arch:
+      pi: [64, 64]
+      vf: [64, 64]
+
+# --- Normalization ---
+normalize_obs: false
+normalize_reward: false
+
+# --- Logging / checkpoints ---
+eval_freq: 25_000             # eval every N env steps per vec env
+n_eval_episodes: 20
+checkpoint_freq: 100_000
+
+# --- Wrapper stack (kept null for the nominal baseline) ---
+wrappers: null

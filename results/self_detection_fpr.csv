@@ -1,0 +1,6 @@
+algo,signal,FPR
+ppo,value,0.05
+ppo,entropy,0.15
+ppo,advantage,0.1
+sac,q_min,0.05
+sac,entropy,0.05

@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.Python
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Training artefacts not published
+runs/
+logs/
+*.mp4
+*.gif
+
+# Intermediate checkpoints (only best_model per seed is published)
+**/checkpoints/
+ckpt_*.zip
+
+# Local config
+.vscode/
+.idea/

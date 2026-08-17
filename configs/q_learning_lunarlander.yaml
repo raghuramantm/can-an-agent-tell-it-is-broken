@@ -1,0 +1,37 @@
+# ---------------------------------------------------------------
+# Q-learning (tabular) on LunarLander-v3  —  Discrete(4)
+#
+# A deliberately simple baseline: no neural networks, no replay
+# buffer, no policy gradient.  The Q-table is a sparse dictionary
+# over a discretised 8-D observation space.
+#
+# Expected wallclock on Apple M4:
+#   500 k steps  ≈  2–3 min  (all CPU, single-threaded)
+# ---------------------------------------------------------------
+algo: q_learning
+env_id: LunarLander-v3
+device: cpu                  # tabular — no GPU needed
+
+total_timesteps: 500_000
+eval_freq: 10_000            # evaluate every 10 k steps
+n_eval_episodes: 20
+checkpoint_freq: 100_000
+
+# --- state discretisation ---
+discretizer:
+  n_bins: 10                  # per continuous dim (6 dims → 10^6 states)
+  obs_ranges:
+    - [-1.5,  1.5]            # x position
+    - [-0.5,  2.0]            # y position (pad above launch height)
+    - [-3.0,  3.0]            # x velocity
+    - [-3.0,  0.5]            # y velocity (mostly negative: falling)
+    - [-3.14159, 3.14159]     # angle (full circle)
+    - [-5.0,  5.0]            # angular velocity
+
+# --- hyperparameters ---
+hyperparameters:
+  alpha: 0.1                  # learning rate
+  gamma: 0.999                # discount factor (matches PPO config)
+  epsilon_start: 1.0          # initial exploration
+  epsilon_end: 0.01           # final exploration
+  epsilon_decay_steps: 300_000 # linear decay over 60 % of training
